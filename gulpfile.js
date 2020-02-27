@@ -28,6 +28,5 @@ gulp.task("scripts", function() {
 
 gulp.task("watch", function() {
   gulp.watch("app/scss/*.scss", gulp.series(["styles"]));
-  gulp.watch("app/*.html", gulp.series(["useref"]));
   gulp.watch("app/js/*.js", gulp.series(["scripts"]));
 });
