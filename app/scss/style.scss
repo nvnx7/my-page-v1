@@ -54,7 +54,7 @@ body {
     display: flex;
     flex-direction: row;
     margin-top: 100px;
-    background: yellowgreen;
+    // background: yellowgreen;
     align-items: center;
     justify-content: space-between;
 
@@ -63,22 +63,14 @@ body {
       flex-direction: column;
       font-size: 6vw;
       font-weight: bolder;
-      background-color: gray;
+      // background-color: gray;
       justify-content: center;
       align-items: flex-start;
 
       .typewriter {
-        // overflow: hidden;
-        // border-right: 20px solid black;
-        // white-space: nowrap;
-        // text-align: center;
-        // vertical-align: bottom;
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
-        // background-color: yellow;
-        // animation: typing 3s steps(20, end) 2s,
-        //   blinking-caret 0.5s step-end infinite;
 
         .typeText {
           overflow: hidden;
@@ -106,7 +98,8 @@ body {
         }
 
         #caretName {
-          animation: blinking-caret 0.5s step-end infinite;
+          animation: blinking-caret 0.5s step-end 1s infinite;
+          visibility: hidden;
         }
 
         #caretGreet {
@@ -143,7 +136,9 @@ body {
 }
 
 @keyframes blinking-caret {
-  0%,
+  0% {
+    visibility: hidden;
+  }
   100% {
     visibility: hidden;
   }
