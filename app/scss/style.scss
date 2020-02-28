@@ -43,6 +43,7 @@ body {
 
 #wrapper {
   display: flex;
+  flex-direction: column;
   margin-top: 100px;
   align-items: center;
   justify-content: center;
@@ -53,13 +54,66 @@ body {
     display: flex;
     flex-direction: row;
     margin-top: 100px;
-    // background: yellowgreen;
+    background: yellowgreen;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 
     #aboutMe {
+      display: flex;
+      flex-direction: column;
       font-size: 6vw;
       font-weight: bolder;
+      background-color: gray;
+      justify-content: center;
+      align-items: flex-start;
+
+      .typewriter {
+        // overflow: hidden;
+        // border-right: 20px solid black;
+        // white-space: nowrap;
+        // text-align: center;
+        // vertical-align: bottom;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        // background-color: yellow;
+        // animation: typing 3s steps(20, end) 2s,
+        //   blinking-caret 0.5s step-end infinite;
+
+        .typeText {
+          overflow: hidden;
+          white-space: nowrap;
+          visibility: hidden;
+        }
+
+        #name {
+          animation: typing 3.5s steps(21, end) 1s;
+          animation-fill-mode: forwards;
+          // background-color: greenyellow;
+        }
+
+        #greet {
+          animation: typing 1s steps(6, end) 0s;
+          animation-fill-mode: forwards;
+          // background-color: greenyellow;
+        }
+
+        .caret {
+          margin-bottom: 24px;
+          background-color: black;
+          width: 15px;
+          animation: blinking-caret 0.5s step-end infinite;
+        }
+
+        #caretName {
+          animation: blinking-caret 0.5s step-end infinite;
+        }
+
+        #caretGreet {
+          animation: blinking-caret 0.5s step-end 2;
+          animation-fill-mode: forwards;
+        }
+      }
     }
 
     #myPic {
@@ -74,5 +128,26 @@ body {
         clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 0% 100%);
       }
     }
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+    visibility: visible;
+  }
+  to {
+    width: 100%;
+    visibility: visible;
+  }
+}
+
+@keyframes blinking-caret {
+  0%,
+  100% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: visible;
   }
 }
