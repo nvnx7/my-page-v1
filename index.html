@@ -2,12 +2,16 @@
 <html>
   <head>
     <title>Personal Website</title>
-    <link rel="stylesheet" href="dist/css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="dist/css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Overpass+Mono&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
     <nav id="navbar">
-      <ul id="navList">
+      <ul id="nav-list">
         <li><a href="#connect">Connect</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#about">About</a></li>
@@ -15,21 +19,27 @@
     </nav>
 
     <div id="wrapper">
-      <div id="about">
-        <div id="aboutMe">
+      <section id="intro">
+        <div id="intro-texts">
           <div class="typewriter">
-            <span class="typeText" id="greet">Hi.</span
-            ><span class="caret" id="caretGreet"></span>
+            <span class="type-text" id="greet">Hi.</span>
+            <span class="caret" id="caret-greet"></span>
           </div>
           <div class="typewriter">
-            <span class="typeText" id="name">I'm NaveeN.</span
-            ><span class="caret" id="caretName"></span>
+            <span class="type-text" id="name">I'm NaveeN.</span>
+            <span class="caret" id="caret-name"></span>
           </div>
         </div>
-        <div id="myPic">
+        <div id="my-pic">
           <img src="dist/img/pic.jpg" alt="My photo" />
         </div>
-      </div>
+      </section>
+
+      <section id="about">
+        <div class="typewriter1">
+          <span class="typeText1" id="aboutLabel">About</span>
+        </div>
+      </section>
     </div>
 
     <script src="dist/js/main.js"></script>

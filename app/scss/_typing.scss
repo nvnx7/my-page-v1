@@ -1,0 +1,52 @@
+@mixin typing-anim($duration, $nSteps, $delay: 0s) {
+  animation-name: typing;
+  animation-duration: $duration;
+  animation-timing-function: steps($nSteps, end);
+  animation-delay: $delay;
+  animation-fill-mode: forwards;
+}
+
+@mixin blinking-caret-anim($delay, $count, $fill-mode: none) {
+  animation: blinking-caret 0.5s step-end 1s $count;
+  animation-fill-mode: $fill-mode;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blinking-caret {
+  0% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: visible;
+  }
+}
+
+.typewriter {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  .type-text {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    // background-color: yellow;
+  }
+
+  .caret {
+    margin-bottom: 24px;
+    background-color: black;
+    width: 15px;
+  }
+}

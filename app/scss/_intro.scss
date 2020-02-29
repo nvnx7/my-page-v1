@@ -1,0 +1,52 @@
+@import "./variables";
+
+#intro {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 100px;
+  // background: yellowgreen;
+  align-items: center;
+  justify-content: space-between;
+
+  #intro-texts {
+    display: flex;
+    flex-direction: column;
+    font-size: $big-text-size;
+    font-weight: bolder;
+    // background-color: gray;
+    justify-content: center;
+    align-items: flex-start;
+
+    #greet {
+      @include typing-anim(1s, 6);
+    }
+
+    #caret-greet {
+      @include blinking-caret-anim(0s, 0, forwards);
+    }
+
+    #name {
+      @include typing-anim(3.5s, 21, 1.5s);
+    }
+
+    #caret-name {
+      @include blinking-caret-anim(1s, infinite);
+      visibility: hidden;
+    }
+  }
+
+  #my-pic {
+    width: 400px;
+    height: 100%;
+    filter: drop-shadow(5px 5px 10px black);
+    // background-color: yellow;
+
+    img {
+      width: 100%;
+      height: 100%;
+      clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+  }
+}
