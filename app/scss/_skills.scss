@@ -1,0 +1,15 @@
+@import "typing";
+
+#skills {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  #header-skills {
+    @include typing-anim(2s, 12);
+  }
+
+  #caret-skills {
+    @include blinking-caret-anim(0s, infinite, backwards);
+  }
+}

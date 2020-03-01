@@ -35,7 +35,9 @@
 .typewriter {
   display: flex;
   flex-direction: row;
+  width: fit-content;
   justify-content: flex-start;
+  background-color: yellow;
 
   .type-text {
     overflow: hidden;

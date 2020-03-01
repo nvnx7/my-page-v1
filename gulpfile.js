@@ -1,6 +1,6 @@
 const gulp = require("gulp");
 const sass = require("gulp-sass");
-const uglify = require("gulp-uglify");
+const terser = require("gulp-terser");
 const cleanCSS = require("gulp-clean-css");
 const babel = require("gulp-babel");
 const autoprefixer = require("gulp-autoprefixer");
@@ -23,7 +23,7 @@ gulp.task("scripts", function() {
     .src("app/js/*.js")
     .pipe(babel())
     .pipe(concat("main.js"))
-    .pipe(uglify())
+    .pipe(terser())
     .pipe(gulp.dest("dist/js"));
 });
 
