@@ -1,47 +1,89 @@
-// let fn = () => alert(window.pageYOffset);
-// setTimeout(fn, 4000);
-
-var lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-window.addEventListener("scroll", e => {
-  e.preventDefault();
-  let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-  if (scrollTop > lastScrollTop) {
-    // doScrolling("#about", 1000);
-  } else {
-    // alert("Up");
-  }
-
-  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+const Section = Object.freeze({
+  Intro: "#intro",
+  About: "#about",
+  Skills: "#skills",
+  Connect: "#connect"
 });
 
-function doScrolling(element, duration) {
-  let startingY = window.pageYOffset;
-  let elementY =
-    startingY + document.querySelector(element).getBoundingClientRect().top;
-  let targetY =
-    document.body.scrollHeight -
-    (elementY < window.innerHeight
-      ? document.body.scrollHeight - window.innerHeight
-      : elementY);
+let currentSectionIdx = 0;
+let currentTop = 0;
+const sections = [
+  Section.Intro,
+  Section.About,
+  Section.Skills,
+  Section.Connect
+];
 
-  let diff = targetY - startingY;
-  let start;
+window.addEventListener("wheel", e => {
+  console.log("From Idx:" + currentSectionIdx);
 
-  window.requestAnimationFrame(function step(timestamp) {
-    if (!start) start = timestamp;
+  // Don't jump to next section if there's existing scrolling happening
+  if (isStillScrolling(currentSectionIdx)) {
+    return;
+  }
 
-    let timeElapsed = timestamp - start; // ms elapsed since start of scroll
-    let percent = Math.min(timeElapsed / duration, 1); // % complete
-    // percent = easing(percent);
+  if (e.deltaY < 0 && currentSectionIdx > 0) {
+    // scrolled up
+    scrollToSection(currentSectionIdx - 1);
+    currentSectionIdx--;
 
-    window.scrollTo(0, startingY + diff * percent);
+    console.log("To Idx:" + currentSectionIdx);
+  } else if (e.deltaY > 0 && currentSectionIdx < sections.length - 1) {
+    // scrolled down
 
-    // Continue scroll steps until duration of scroll
-    if (timeElapsed < duration) window.requestAnimationFrame(step);
-  });
+    scrollToSection(currentSectionIdx + 1);
+    currentSectionIdx++;
+
+    console.log("To Idx:" + currentSectionIdx);
+  }
+});
+
+// document.querySelector("#navbar").addEventListener("click", e => {
+//   let top = getElementY(sections[currentSectionIdx]);
+//   console.log("Top of " + sections[currentSectionIdx] + ": " + top);
+// });
+
+function scrollToSection(sectionIdx) {
+  currentTop += getElementY(sections[sectionIdx]);
+  window.scrollTo(0, currentTop);
 }
 
-var easing = function(t) {
-  return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
-};
+function isStillScrolling(pendingSectionIdx) {
+  if (getElementY(sections[pendingSectionIdx]) == 0) return false;
+  return true;
+}
+
+function getElementY(query) {
+  return document.querySelector(query).getBoundingClientRect().top;
+}
+
+// function doScrolling(element, duration) {
+//   let startingY = window.pageYOffset;
+//   let elementY =
+//     startingY + document.querySelector(element).getBoundingClientRect().top;
+//   let targetY =
+//     document.body.scrollHeight -
+//     (elementY < window.innerHeight
+//       ? document.body.scrollHeight - window.innerHeight
+//       : elementY);
+
+//   let diff = targetY - startingY;
+//   let start;
+
+//   window.requestAnimationFrame(function step(timestamp) {
+//     if (!start) start = timestamp;
+
+//     let timeElapsed = timestamp - start; // ms elapsed since start of scroll
+//     let percent = Math.min(timeElapsed / duration, 1); // % complete
+//     // percent = easing(percent);
+
+//     window.scrollTo(0, startingY + diff * percent);
+
+//     // Continue scroll steps until duration of scroll
+//     if (timeElapsed < duration) window.requestAnimationFrame(step);
+//   });
+// }
+
+// var easing = function(t) {
+//   return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+// };
