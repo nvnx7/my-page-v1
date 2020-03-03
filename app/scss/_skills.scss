@@ -3,7 +3,7 @@
 #skills {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
 
   #header-skills {
     @include typing-anim(2s, 12);
@@ -11,5 +11,32 @@
 
   #caret-skills {
     @include blinking-caret-anim(0s, infinite, backwards);
+  }
+
+  #skill-carousel {
+    position: relative;
+    height: 60%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: yellowgreen;
+
+    .skill-item {
+      width: 70%;
+    }
+
+    #fade-gradient {
+      height: 100%;
+      width: 30%;
+      z-index: 1;
+      position: absolute;
+      right: 0px;
+      background-image: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 1)
+      );
+    }
   }
 }

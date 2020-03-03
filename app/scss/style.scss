@@ -23,15 +23,12 @@ body {
 
 #wrapper {
   width: 85%;
-  // height: fit-content;
   display: flex;
   flex-direction: column;
   margin: 0px auto;
   align-items: center;
   justify-content: flex-start;
   background-color: #c2c2c2;
-  // overflow-y: scroll;
-  // scroll-snap-type: y mandatory;
 
   .header {
     font-size: $big-text-size;
@@ -43,6 +40,5 @@ body {
     height: 100vh;
     background-color: whitesmoke;
     margin-bottom: 0px;
-    scroll-snap-align: center;
   }
 }
