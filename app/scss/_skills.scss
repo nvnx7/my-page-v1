@@ -13,6 +13,19 @@
     @include blinking-caret-anim(0s, infinite, backwards);
   }
 
+  #nav-buttons {
+    align-self: center;
+
+    .nav-btn {
+      width: 100px;
+      height: 100px;
+      border: solid black 5px;
+      background: none;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+  }
+
   #skill-carousel {
     position: relative;
     height: 60%;
@@ -20,10 +33,15 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     background-color: yellowgreen;
+    overflow: hidden;
+    scroll-behavior: smooth;
 
     .skill-item {
-      width: 70%;
+      padding: 10px;
+      background-color: yellow;
+      min-width: 70%;
     }
 
     #fade-gradient {
