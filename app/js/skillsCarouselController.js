@@ -1,12 +1,25 @@
-const carousel = document.querySelector("#skill-carousel");
+const navDotClassName = "nav-dot";
+
+let currentIdx = 0;
+const items = ["#item1", "#item2", "#item3"];
+const carousel = document.querySelector("#skill-items-container");
 const nextBtn = document.querySelector("#nav-btn-next");
 const prevBtn = document.querySelector("#nav-btn-prev");
-const leftPad = getElementX("#skills");
 
 nextBtn.addEventListener("click", e => {
-  carousel.scrollTo(getElementX("#item2") - leftPad, 0);
+  if (currentIdx >= items.length - 1) return;
+
+  currentIdx++;
+  carousel.scrollTo(getRelativeX(items[currentIdx]), 0);
 });
 
-function getElementX(query) {
-  return document.querySelector(query).getBoundingClientRect().left;
+prevBtn.addEventListener("click", e => {
+  if (currentIdx <= 0) return;
+
+  currentIdx--;
+  carousel.scrollTo(getRelativeX(items[currentIdx]), 0);
+});
+
+function getRelativeX(query) {
+  return document.querySelector(query).offsetLeft;
 }
