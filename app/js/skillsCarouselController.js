@@ -1,24 +1,40 @@
-const navDotClassName = "nav-dot";
-
+const navDotToggleClass = "nav-dot-current";
 let currentIdx = 0;
-const items = ["#item1", "#item2", "#item3"];
 const carousel = document.querySelector("#skill-items-container");
-const nextBtn = document.querySelector("#nav-btn-next");
-const prevBtn = document.querySelector("#nav-btn-prev");
 
-nextBtn.addEventListener("click", e => {
+// skip last dummy item
+const items = Array.from(carousel.getElementsByClassName("skill-item")).slice(
+  0,
+  -1
+);
+
+const navDots = Array.from(
+  document.getElementById("nav-dots").getElementsByClassName("nav-dot")
+);
+
+function scrollToNextItem() {
   if (currentIdx >= items.length - 1) return;
 
+  // remove class from prev dot
+  navDots[currentIdx].classList.remove(navDotToggleClass);
   currentIdx++;
-  carousel.scrollTo(getRelativeX(items[currentIdx]), 0);
-});
+  carousel.scrollTo(items[currentIdx].offsetLeft, 0);
 
-prevBtn.addEventListener("click", e => {
+  // add class to current dot
+  navDots[currentIdx].classList.add(navDotToggleClass);
+}
+
+function scrollToPrevItem() {
   if (currentIdx <= 0) return;
 
+  // remove class from prev dot
+  navDots[currentIdx].classList.remove(navDotToggleClass);
   currentIdx--;
-  carousel.scrollTo(getRelativeX(items[currentIdx]), 0);
-});
+  carousel.scrollTo(items[currentIdx].offsetLeft, 0);
+
+  // add class to current dot
+  navDots[currentIdx].classList.add(navDotToggleClass);
+}
 
 function getRelativeX(query) {
   return document.querySelector(query).offsetLeft;

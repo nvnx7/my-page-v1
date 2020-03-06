@@ -7,6 +7,10 @@
       href="https://fonts.googleapis.com/css?family=Overpass+Mono&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+    />
   </head>
 
   <body>
@@ -96,13 +100,19 @@
           <div id="fade-gradient"></div>
 
           <div id="nav-buttons">
-            <button class="nav-btn" id="nav-btn-prev">&lt;</button>
+            <button class="nav-btn" id="nav-btn-prev">
+              <i class="fas fa-angle-left"></i>
+            </button>
             <div id="nav-dots">
+              <span class="nav-dot nav-dot-current" id="dot1"></span>
               <span class="nav-dot" id="dot1"></span>
               <span class="nav-dot" id="dot1"></span>
-              <span class="nav-dot" id="dot1"></span>
+              <!-- <span class="nav-dot" id="dot1"></span>
+              <span class="nav-dot" id="dot1"></span> -->
             </div>
-            <button class="nav-btn" id="nav-btn-next">&gt;</button>
+            <button class="nav-btn" id="nav-btn-next">
+              <i class="fas fa-angle-right"></i>
+            </button>
           </div>
         </div>
       </section>
