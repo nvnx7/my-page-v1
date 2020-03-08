@@ -1,6 +1,7 @@
 const nextBtn = document.querySelector("#nav-btn-next");
 const prevBtn = document.querySelector("#nav-btn-prev");
 const peekGradient = document.querySelector("#fade-gradient");
+const navDots = document.querySelector("#nav-dots");
 
 window.addEventListener("wheel", e => {
   if (e.deltaY < 0 && currentSectionIdx > 0) {
@@ -22,4 +23,8 @@ nextBtn.addEventListener("click", e => {
 
 prevBtn.addEventListener("click", e => {
   scrollToPrevItem();
+});
+
+navDots.addEventListener("click", e => {
+  scrollToItem(e.target);
 });

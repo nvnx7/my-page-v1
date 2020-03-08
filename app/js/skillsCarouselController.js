@@ -8,7 +8,7 @@ const items = Array.from(carousel.getElementsByClassName("skill-item")).slice(
   -1
 );
 
-const navDots = Array.from(
+const navDotsList = Array.from(
   document.getElementById("nav-dots").getElementsByClassName("nav-dot")
 );
 
@@ -16,24 +16,38 @@ function scrollToNextItem() {
   if (currentIdx >= items.length - 1) return;
 
   // remove class from prev dot
-  navDots[currentIdx].classList.remove(navDotToggleClass);
+  navDotsList[currentIdx].classList.remove(navDotToggleClass);
   currentIdx++;
   carousel.scrollTo(items[currentIdx].offsetLeft, 0);
 
   // add class to current dot
-  navDots[currentIdx].classList.add(navDotToggleClass);
+  navDotsList[currentIdx].classList.add(navDotToggleClass);
 }
 
 function scrollToPrevItem() {
   if (currentIdx <= 0) return;
 
   // remove class from prev dot
-  navDots[currentIdx].classList.remove(navDotToggleClass);
+  navDotsList[currentIdx].classList.remove(navDotToggleClass);
   currentIdx--;
   carousel.scrollTo(items[currentIdx].offsetLeft, 0);
 
   // add class to current dot
-  navDots[currentIdx].classList.add(navDotToggleClass);
+  navDotsList[currentIdx].classList.add(navDotToggleClass);
+}
+
+function scrollToItem(element) {
+  const idx = navDotsList.indexOf(element);
+
+  if (idx == -1) return;
+
+  // remove class from prev dot
+  navDotsList[currentIdx].classList.remove(navDotToggleClass);
+  currentIdx = idx;
+  carousel.scrollTo(items[currentIdx].offsetLeft, 0);
+
+  // add class to current dot
+  navDotsList[currentIdx].classList.add(navDotToggleClass);
 }
 
 function getRelativeX(query) {
