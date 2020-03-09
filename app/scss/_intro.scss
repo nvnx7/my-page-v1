@@ -30,12 +30,13 @@
   }
 
   #my-pic {
-    height: 50%;
+    width: 35%;
     filter: drop-shadow(5px 5px 10px black);
     // background-color: yellow;
 
     img {
-      height: 100%;
+      width: 100%;
+      object-fit: cover;
       clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
   }

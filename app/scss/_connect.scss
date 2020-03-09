@@ -3,7 +3,7 @@
 #connect {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
 
   #header-connect {
     @include typing-anim(2s, 12);
@@ -11,5 +11,37 @@
 
   #caret-connect {
     @include blinking-caret-anim(0s, infinite, backwards);
+  }
+
+  #connections {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-self: center;
+    justify-content: space-around;
+    align-items: center;
+
+    a {
+      width: 200px;
+      height: 200px;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 8em;
+      color: black;
+      // background-color: yellow;
+
+      span {
+        margin: 10px;
+        font-size: 0.12em;
+      }
+    }
+  }
+
+  #meet-greet {
+    align-self: center;
+    font-size: 1.2em;
   }
 }
