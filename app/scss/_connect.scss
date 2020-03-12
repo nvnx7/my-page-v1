@@ -22,20 +22,19 @@
     align-items: center;
 
     a {
-      width: 200px;
-      height: 200px;
       text-decoration: none;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      font-size: 8em;
+      font-size: 15vw;
       color: black;
       // background-color: yellow;
+      // border: solid 1px black;
 
       span {
         margin: 10px;
-        font-size: 0.12em;
+        font-size: 16px;
       }
     }
   }
@@ -43,5 +42,17 @@
   #meet-greet {
     align-self: center;
     font-size: 1.2em;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #connect {
+    #connections {
+      a {
+        span {
+          font-size: 12px;
+        }
+      }
+    }
   }
 }

@@ -1,11 +1,14 @@
+const wrapper = document.getElementById("wrapper");
+
 const nextBtn = document.querySelector("#nav-btn-next");
 const prevBtn = document.querySelector("#nav-btn-prev");
 const peekGradient = document.querySelector("#fade-gradient");
 const navDots = document.querySelector("#nav-dots");
 
+const navBar = document.getElementById("navbar");
 const navExpandBtn = document.getElementById("nav-expand");
 const navCollapseBtn = document.getElementById("nav-collapse");
-const navBar = document.getElementById("navbar");
+const navBtnList = document.getElementById("nav-list");
 
 window.addEventListener("wheel", e => {
   if (e.deltaY < 0 && currentSectionIdx > 0) {
@@ -42,5 +45,16 @@ navExpandBtn.addEventListener("click", e => {
 navCollapseBtn.addEventListener("click", e => {
   if (e.target) {
     collapseNavBar();
+  }
+});
+
+navBtnList.addEventListener("click", e => {
+  if (e.target.tagName == "A") {
+    e.preventDefault();
+    collapseNavBar();
+
+    const idx = sections.indexOf(e.target.getAttribute("href"));
+
+    scrollToSection(idx);
   }
 });

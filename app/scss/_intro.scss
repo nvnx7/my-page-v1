@@ -7,7 +7,7 @@
   #intro-texts {
     display: flex;
     flex-direction: column;
-    background-color: gray;
+    // background-color: gray;
     justify-content: center;
     align-items: flex-start;
 
@@ -39,5 +39,23 @@
       object-fit: cover;
       clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #intro {
+    #intro-texts {
+      align-items: center;
+      margin: auto;
+
+      #name,
+      #greet {
+        font-size: 3em;
+      }
+    }
+  }
+
+  #my-pic {
+    display: none;
   }
 }

@@ -12,7 +12,7 @@ body {
   color: black;
   background-color: white;
   font-family: "Overpass Mono";
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 * {
@@ -22,11 +22,14 @@ body {
 
 #wrapper {
   width: 85%;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   margin: 0px auto;
   align-items: center;
   justify-content: flex-start;
+  // overflow: hidden;
+  scroll-behavior: smooth;
   // background-color: #c2c2c2;
 
   .header {
@@ -39,5 +42,12 @@ body {
     height: 100vh;
     // background-color: whitesmoke;
     margin-bottom: 0px;
+    // border: solid 1px black;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #wrapper {
+    width: 90%;
   }
 }
