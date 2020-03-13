@@ -1,6 +1,5 @@
 const navDotToggleClass = "nav-dot-current";
 let currentIdx = 0;
-const carousel = document.querySelector("#skill-items-container");
 
 // skip last dummy item
 const items = Array.from(carousel.getElementsByClassName("skill-item")).slice(
