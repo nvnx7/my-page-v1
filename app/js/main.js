@@ -13,15 +13,17 @@ const navExpandBtn = document.getElementById("nav-expand");
 const navCollapseBtn = document.getElementById("nav-collapse");
 const navBtnList = document.getElementById("nav-list");
 
+// const modeSwitch = document.getElementById("slider");
+const sliderIcon = document.getElementById("slider-icon");
+const modeCheckbox = document.getElementById("mode-checkbox");
+
 const handleTouchStart = e => {
-  console.log("handleTouchStart");
   xStart = e.touches[0].clientX;
   yStart = e.touches[0].clientY;
 };
 
 const handleTouchMove = e => {
   if (!xStart || !yStart) return;
-  console.log("handleTouchMove");
 
   const xMove = e.touches[0].clientX;
   const yMove = e.touches[0].clientY;
@@ -33,11 +35,9 @@ const handleTouchMove = e => {
   if (Math.abs(yDiff) > Math.abs(xDiff) + SWIPE_THRESHOLD) {
     if (yDiff > 0) {
       // Swipe up
-      console.log("Up swipe");
       scrollToNext();
     } else {
       // Swipe down
-      console.log("Down swipe");
       scrollToPrev();
     }
 
@@ -47,8 +47,6 @@ const handleTouchMove = e => {
 };
 
 const handleTouchEnd = e => {
-  console.log("handleTouchEnd");
-
   if (!xStart || !yStart) return;
 
   const xEnd = e.changedTouches[0].clientX;
@@ -56,7 +54,6 @@ const handleTouchEnd = e => {
 
   const xDiff = xStart - xEnd;
   const yDiff = yStart - yEnd;
-  console.log("xDiff: " + xDiff);
 
   // horizontal swipe
   if (Math.abs(xDiff) > Math.abs(yDiff) + SWIPE_THRESHOLD) {
@@ -74,6 +71,7 @@ const handleTouchEnd = e => {
   }
 };
 
+// Starting point for touch event
 let xStart = null;
 let yStart = null;
 

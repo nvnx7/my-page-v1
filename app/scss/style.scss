@@ -43,11 +43,24 @@ body {
     // background-color: whitesmoke;
     margin-bottom: 0px;
     // border: solid 1px black;
+
+    .caret {
+      height: $big-text-size;
+    }
   }
 }
 
 @media only screen and (max-width: 600px) {
   #wrapper {
     width: 90%;
+
+    section {
+      .header {
+        font-size: 3em;
+      }
+      .caret {
+        height: 3em;
+      }
+    }
   }
 }

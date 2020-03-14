@@ -1,0 +1,43 @@
+@import "variables";
+
+#mode-switch {
+  position: relative;
+  width: 70px;
+  height: 35px;
+  display: inline-block;
+
+  input {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+
+  #slider {
+    display: flex;
+    position: absolute;
+    background-color: gainsboro;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+    border-radius: 32px;
+
+    align-items: center;
+
+    i {
+      font-size: 25px;
+      transition: 0.5s;
+    }
+
+    .fa-sun {
+      color: black;
+      transform: translate(42px);
+    }
+
+    .fa-moon {
+      color: whitesmoke;
+      transform: translate(0px);
+    }
+  }
+}

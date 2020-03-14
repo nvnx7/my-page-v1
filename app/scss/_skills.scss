@@ -191,15 +191,19 @@
       #skill-items-container {
         width: 100%;
         justify-content: flex-start;
+        margin-top: 10px;
+
+        .skill-item-header {
+          font-size: 18px;
+        }
 
         .skill-item-contents {
-          margin-left: 0px;
+          margin-left: 10px;
           margin-top: 5px;
         }
 
         .skill-item {
           min-width: 100%;
-          // border: solid 1px black;
         }
 
         #skill-programming-contents,

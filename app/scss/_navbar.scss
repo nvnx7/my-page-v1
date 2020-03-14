@@ -1,4 +1,5 @@
 @import "variables";
+@import "switch";
 
 #navbar {
   width: 100%;
@@ -62,7 +63,7 @@
     overflow: hidden;
 
     #nav-expand {
-      display: block;
+      display: inline;
       align-self: flex-start;
     }
 
