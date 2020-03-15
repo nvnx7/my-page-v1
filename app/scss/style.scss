@@ -9,10 +9,66 @@
 html,
 body {
   scroll-behavior: smooth;
-  color: black;
-  background-color: white;
+  color: $light-mode-font-color;
+  background-color: $light-mode-background;
   font-family: "Overpass Mono";
   overflow: hidden;
+  transition: 1s;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.dark {
+  color: $dark-mode-font-color;
+  background-color: $dark-mode-background;
+
+  * {
+    color: white;
+  }
+
+  .typewriter {
+    background-color: $moon-background;
+  }
+
+  .caret {
+    background-color: white;
+  }
+
+  #mode-switch {
+    #slider {
+      background-color: $moon-background;
+    }
+  }
+
+  #skills {
+    #skill-carousel {
+      #nav-buttons {
+        #nav-dots {
+          .nav-dot {
+            border: solid 1px white;
+          }
+
+          .nav-dot-current {
+            background-color: whitesmoke;
+          }
+        }
+      }
+    }
+  }
+
+  #nav-dots {
+    .nav-dot {
+      border: solid 1px white;
+    }
+    // border: solid 1px white;
+  }
+
+  .nav-dot-current {
+    background-color: white;
+  }
 }
 
 * {
@@ -30,7 +86,7 @@ body {
   justify-content: flex-start;
   // overflow: hidden;
   scroll-behavior: smooth;
-  // background-color: #c2c2c2;
+  // background-color: $light-mode-background;
 
   .header {
     font-size: $big-text-size;
@@ -43,6 +99,7 @@ body {
     // background-color: whitesmoke;
     margin-bottom: 0px;
     // border: solid 1px black;
+    transition: 1s;
 
     .caret {
       height: $big-text-size;

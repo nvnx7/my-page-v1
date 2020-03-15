@@ -36,8 +36,28 @@
     }
 
     .fa-moon {
-      color: whitesmoke;
-      transform: translate(0px);
+      color: white;
+      transform: translate(2px);
+      background-color: transparent;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #mode-switch {
+    width: 60px;
+    height: 30px;
+
+    #slider {
+      border-radius: 30px;
+
+      i {
+        font-size: 20px;
+      }
+
+      .fa-sun {
+        transform: translate(35px);
+      }
     }
   }
 }
