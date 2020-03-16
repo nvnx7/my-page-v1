@@ -60,6 +60,24 @@ a {
           }
         }
       }
+
+      #fade-gradient {
+        // background-image: none;
+      }
+
+      #fade-gradient::before {
+        opacity: 1;
+        background-image: linear-gradient(
+          to right,
+          rgba(18, 18, 18, 0.5),
+          rgba(18, 18, 18, 1)
+        );
+      }
+
+      #fade-gradient::after {
+        background-image: none;
+        opacity: 0;
+      }
     }
   }
 
