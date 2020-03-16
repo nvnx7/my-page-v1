@@ -13,35 +13,40 @@ const sections = [
   Section.Connect
 ];
 
+let lockScroll = false;
+
 function scrollToNext() {
   // Don't jump to next section if there's existing scrolling happening
-  if (isStillScrolling(currentSectionIdx)) return;
+  if (lockScroll) return;
   if (!(currentSectionIdx < sections.length - 1)) return;
 
   currentSectionIdx++;
   document.querySelector(sections[currentSectionIdx]).scrollIntoView(true);
+  setScrollLockTimeout();
 }
 
 function scrollToPrev() {
   // Don't jump to next section if there's existing scrolling happening
-  if (isStillScrolling(currentSectionIdx)) return;
+  if (lockScroll) return;
   if (!(currentSectionIdx > 0)) return;
 
   currentSectionIdx--;
   document.querySelector(sections[currentSectionIdx]).scrollIntoView(true);
+  setScrollLockTimeout();
 }
 
 function scrollToSection(sectionIdx) {
   // Don't jump to next section if there's existing scrolling happening
-  if (isStillScrolling(currentSectionIdx)) return;
+  if (lockScroll) return;
   currentSectionIdx = sectionIdx;
   document.querySelector(sections[currentSectionIdx]).scrollIntoView(true);
 }
 
-// Currently approaching section's (pending section's) top is 0 when it's done scrolling
-function isStillScrolling(pendingSectionIdx) {
-  if (getElementY(sections[pendingSectionIdx]) == 0) return false;
-  return true;
+function setScrollLockTimeout() {
+  lockScroll = true;
+  setTimeout(() => {
+    lockScroll = false;
+  }, 500);
 }
 
 function getRelativeY(query) {
@@ -56,8 +61,3 @@ function reset() {
   currentSectionIdx = 0;
   document.getElementById("intro").scrollIntoView(true);
 }
-
-// document.querySelector("#navbar").addEventListener("click", e => {
-//   let top = getElementY(sections[currentSectionIdx]);
-//   console.log("Top of " + sections[currentSectionIdx] + ": " + top);
-// });

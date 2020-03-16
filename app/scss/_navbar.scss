@@ -11,12 +11,11 @@
   z-index: 2;
   justify-content: space-between;
   align-items: center;
+  background-color: white;
+  transition: 0.5s;
 
   .fa-bars {
     display: none;
-    // position: absolute;
-    // top: 0px;
-    // left: 0px;
     font-size: 28px;
     padding: 8px;
     cursor: pointer;
@@ -45,6 +44,13 @@
       margin: auto;
       padding: 0px 20px;
     }
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .fa-bars,
+  .fa-times {
+    display: none;
   }
 }
 

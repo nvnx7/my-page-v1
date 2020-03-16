@@ -76,10 +76,10 @@ let xStart = null;
 let yStart = null;
 
 window.addEventListener("wheel", e => {
-  if (e.deltaY < 0 && currentSectionIdx > 0) {
+  if (e.deltaY < 0) {
     // scrolled up
     scrollToPrev();
-  } else if (e.deltaY > 0 && currentSectionIdx < sections.length - 1) {
+  } else if (e.deltaY > 0) {
     // scrolled down
     scrollToNext();
   }
