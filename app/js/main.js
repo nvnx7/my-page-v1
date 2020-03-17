@@ -9,8 +9,7 @@ const peekGradient = document.querySelector("#fade-gradient");
 const navDots = document.querySelector("#nav-dots");
 
 const navBar = document.getElementById("navbar");
-const navExpandBtn = document.getElementById("nav-expand");
-const navCollapseBtn = document.getElementById("nav-collapse");
+const navMenuBtn = document.getElementById("nav-menu-btn");
 const navBtnList = document.getElementById("nav-list");
 
 // const modeSwitch = document.getElementById("slider");
@@ -106,22 +105,16 @@ navDots.addEventListener("click", e => {
   scrollToItem(e.target);
 });
 
-navExpandBtn.addEventListener("click", e => {
+navMenuBtn.addEventListener("click", e => {
   if (e.target) {
-    expandNavBar();
-  }
-});
-
-navCollapseBtn.addEventListener("click", e => {
-  if (e.target) {
-    collapseNavBar();
+    toggleNavMenu();
   }
 });
 
 navBtnList.addEventListener("click", e => {
   if (e.target.tagName == "A") {
     e.preventDefault();
-    collapseNavBar();
+    toggleNavMenu();
 
     const idx = sections.indexOf(e.target.getAttribute("href"));
 

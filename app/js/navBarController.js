@@ -1,32 +1,30 @@
 const NAV_COLLAPSED = "nav-collapsed";
 const NAV_EXPANDED = "nav-expanded";
 
+const BTN_COLLAPSED = "fa-bars";
+const BTN_EXPANDED = "fa-times";
+
 let isNavBarCollapsed = true;
 
-function expandNavBar() {
-  navBar.classList.remove(NAV_COLLAPSED);
-  navBar.classList.add(NAV_EXPANDED);
-  toggleNavBtn();
-}
-
-function collapseNavBar() {
-  // Do nothing if viewport width is greater than 600px
-  // as layout is large enough to un-hide nav links
+function toggleNavMenu() {
   if (window.innerWidth > 600) return;
 
-  navBar.classList.remove(NAV_EXPANDED);
-  navBar.classList.add(NAV_COLLAPSED);
-  toggleNavBtn();
-}
+  if (isNavBarCollapsed) {
+    // expand navigation menu
+    navBar.classList.remove(NAV_COLLAPSED);
+    navBar.classList.add(NAV_EXPANDED);
 
-// Toggle between expand & close btn for when nav bar is expanded and collapsed resp.
-function toggleNavBtn() {
-  if (!isNavBarCollapsed) {
-    navCollapseBtn.style.display = "none";
-    navExpandBtn.style.display = "block";
+    // show close icon
+    navMenuBtn.classList.remove(BTN_COLLAPSED);
+    navMenuBtn.classList.add(BTN_EXPANDED);
   } else {
-    navExpandBtn.style.display = "none";
-    navCollapseBtn.style.display = "block";
+    // collapse navigation menu
+    navBar.classList.remove(NAV_EXPANDED);
+    navBar.classList.add(NAV_COLLAPSED);
+
+    // show close icon
+    navMenuBtn.classList.remove(BTN_EXPANDED);
+    navMenuBtn.classList.add(BTN_COLLAPSED);
   }
 
   isNavBarCollapsed = !isNavBarCollapsed;
