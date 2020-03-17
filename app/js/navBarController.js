@@ -10,6 +10,10 @@ function expandNavBar() {
 }
 
 function collapseNavBar() {
+  // Do nothing if viewport width is greater than 600px
+  // as layout is large enough to un-hide nav links
+  if (window.innerWidth > 600) return;
+
   navBar.classList.remove(NAV_EXPANDED);
   navBar.classList.add(NAV_COLLAPSED);
   toggleNavBtn();
