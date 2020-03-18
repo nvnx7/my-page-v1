@@ -4,10 +4,11 @@
 #navbar {
   display: flex;
   width: 100%;
+  height: $size-nav-bar;
   position: fixed;
   top: 0px;
   box-shadow: 10px 0px 10px black;
-  padding: 20px;
+  // padding: 20px;
   z-index: 2;
   justify-content: space-between;
   align-items: center;
@@ -21,13 +22,6 @@
     cursor: pointer;
   }
 
-  // .fa-times {
-  //   display: none;
-  //   font-size: 28px;
-  //   padding: 8px;
-  //   cursor: pointer;
-  // }
-
   #mode-switch {
     margin-left: 20px;
   }
@@ -36,7 +30,7 @@
     display: flex;
     flex-direction: row-reverse;
     list-style-type: none;
-    margin-right: 50px;
+    margin-right: 28px;
     font-size: 1.2em;
     // background-color: gray;
 
@@ -56,21 +50,22 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .nav-expanded {
-    height: $size-nav-bar-expanded;
-    transition: all 0.5s ease;
-  }
-
-  .nav-collapsed {
-    height: $size-nav-bar-collapsed;
-    transition: all 0.5s ease;
-  }
-
   #navbar {
+    height: $size-nav-bar-collapsed;
     padding: 0px;
     display: grid;
     grid-template-columns: 50% 50%;
     overflow: hidden;
+
+    &.nav-expanded {
+      height: $size-nav-bar-expanded;
+      transition: all 0.5s ease;
+    }
+
+    &.nav-expanded {
+      height: $size-nav-bar-expanded;
+      transition: all 0.5s ease;
+    }
 
     #nav-menu-btn {
       display: inline;

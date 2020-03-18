@@ -3,7 +3,11 @@
 #about {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+
+  .typewriter {
+    margin-top: 2vw;
+  }
 
   #header-about {
     @include typing-anim(2.5s, 10);

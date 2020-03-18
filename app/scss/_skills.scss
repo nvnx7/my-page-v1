@@ -3,7 +3,12 @@
 #skills {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  // background-color: yellowgreen;
+
+  .typewriter {
+    margin-top: 2vw;
+  }
 
   #header-skills {
     @include typing-anim(2s, 12);
@@ -18,7 +23,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    // background-color: yellowgreen;
+    // background-color: skyblue;
 
     #skill-items-container {
       position: relative;

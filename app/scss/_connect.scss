@@ -3,7 +3,8 @@
 #connect {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  // padding-bottom: 50px;
 
   #header-connect {
     @include typing-anim(2s, 12);
@@ -37,7 +38,8 @@
 
   #meet-greet {
     align-self: center;
-    font-size: 1.2em;
+    font-size: 18px;
+    margin-bottom: 20px;
   }
 }
 
@@ -49,6 +51,10 @@
           font-size: 12px;
         }
       }
+    }
+
+    #meet-greet {
+      font-size: 16px;
     }
   }
 }
