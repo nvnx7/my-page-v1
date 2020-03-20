@@ -1,0 +1,41 @@
+@import "variables";
+
+@function get-box-shadows($n) {
+  $value: "#{random(2000)}px #{random(2000)}px";
+  @for $i from 1 to $n {
+    $value: "#{$value}, #{random(2000)}px #{random(3000)}px";
+  }
+
+  @return unquote($value);
+}
+
+.bit {
+  background: transparent;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+#bit-one::after {
+  content: "1";
+  position: absolute;
+  text-shadow: get-box-shadows(100);
+  font-size: 10px;
+  animation: bits-anim 90s linear infinite;
+}
+
+#bit-zero::after {
+  content: "0";
+  position: absolute;
+  text-shadow: get-box-shadows(100);
+  font-size: 10px;
+  animation: bits-anim 90s linear infinite;
+}
+
+@keyframes bits-anim {
+  from {
+    transform: translateY(0px);
+  }
+
+  to {
+    transform: translateY(-5000px);
+  }
+}

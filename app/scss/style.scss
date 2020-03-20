@@ -5,6 +5,7 @@
 @import "about";
 @import "skills";
 @import "connect";
+@import "bits";
 
 html,
 body {
@@ -33,6 +34,10 @@ a {
     color: white;
   }
 
+  .bit {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
   .typewriter {
     background-color: $moon-background;
   }
@@ -59,10 +64,6 @@ a {
             background-color: whitesmoke;
           }
         }
-      }
-
-      #fade-gradient {
-        // background-image: none;
       }
 
       #fade-gradient::before {
