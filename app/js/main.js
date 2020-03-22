@@ -16,6 +16,8 @@ const navBtnList = document.getElementById("nav-list");
 const sliderIcon = document.getElementById("slider-icon");
 const modeCheckbox = document.getElementById("mode-checkbox");
 
+const connections = document.getElementById("connections");
+
 const handleTouchStart = e => {
   xStart = e.touches[0].clientX;
   yStart = e.touches[0].clientY;

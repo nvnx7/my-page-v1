@@ -4,15 +4,21 @@ let timeout;
 let original;
 let element;
 
-navBtnList.addEventListener("mouseover", e => {
+let handleRandomizeText = e => {
   if (e.target.tagName != "A") return;
+
   if (timeout) clearTimeout(timeout);
   if (interval) clearInterval(interval);
   if (element) element.innerText = original.join("");
 
-  element = e.target;
+  if (e.target.children.length == 0) element = e.target;
+  else element = e.target.children[1];
+
   randomizeText();
-});
+};
+
+navBtnList.addEventListener("mouseenter", handleRandomizeText, true);
+connections.addEventListener("mouseenter", handleRandomizeText, true);
 
 function randomizeText() {
   original = element.innerText.split("");
@@ -24,15 +30,16 @@ function randomizeText() {
     clearInterval(interval);
     element.innerText = original.join("");
     interval = null;
-    timeout = null;
     element = null;
     original = null;
+    timeout = null;
   }, 400);
 }
 
 function getRandomText(charArray) {
   var i;
   for (i in charArray) {
+    if (charArray[i] == "\n") continue;
     if (getRandomBool()) charArray[i] = getRandomChar();
   }
 
