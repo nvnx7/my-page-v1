@@ -18,23 +18,34 @@ const modeCheckbox = document.getElementById("mode-checkbox");
 
 const connections = document.getElementById("connections");
 
+// Starting point for touch event
+let xStart = null;
+let yStart = null;
+
 const handleTouchStart = e => {
+  // console.log("handleTouchStart");
+
   xStart = e.touches[0].clientX;
   yStart = e.touches[0].clientY;
+  console.log(`sX:${xStart} sY:${yStart}`);
 };
 
 const handleTouchMove = e => {
+  // console.log("handleTouchMove");
   if (!xStart || !yStart) return;
 
   const xMove = e.touches[0].clientX;
   const yMove = e.touches[0].clientY;
 
+  console.log(`mX:${xMove} mY:${yMove}`);
+
   const xDiff = xStart - xMove;
   const yDiff = yStart - yMove;
 
   // vertical swipe
-  if (Math.abs(yDiff) > Math.abs(xDiff) + SWIPE_THRESHOLD) {
+  if (Math.abs(yDiff) > SWIPE_THRESHOLD && Math.abs(yDiff) > Math.abs(xDiff)) {
     if (yDiff > 0) {
+      console.log("move on");
       // Swipe up
       scrollToNext();
     } else {
@@ -57,7 +68,7 @@ const handleTouchEnd = e => {
   const yDiff = yStart - yEnd;
 
   // horizontal swipe
-  if (Math.abs(xDiff) > Math.abs(yDiff) + SWIPE_THRESHOLD) {
+  if (Math.abs(xDiff) > SWIPE_THRESHOLD && Math.abs(xDiff) > Math.abs(yDiff)) {
     // only work for swipe on the skill-items-container id element
     if (e.currentTarget.id != "skill-items-container") return;
     if (xDiff > 0) {
@@ -69,12 +80,22 @@ const handleTouchEnd = e => {
     }
     xStart = null;
     yStart = null;
+  } else if (
+    Math.abs(yDiff) > SWIPE_THRESHOLD &&
+    Math.abs(yDiff) > Math.abs(xDiff)
+  ) {
+    if (yDiff > 0) {
+      // Swipe up
+      scrollToNext();
+    } else {
+      // Swipe down
+      scrollToPrev();
+    }
+
+    xStart = null;
+    yStart = null;
   }
 };
-
-// Starting point for touch event
-let xStart = null;
-let yStart = null;
 
 window.addEventListener("wheel", e => {
   if (e.deltaY < 0) {
@@ -87,7 +108,7 @@ window.addEventListener("wheel", e => {
 });
 
 wrapper.addEventListener("touchstart", handleTouchStart);
-wrapper.addEventListener("touchmove", handleTouchMove);
+wrapper.addEventListener("touchend", handleTouchEnd);
 carousel.addEventListener("touchstart", handleTouchStart);
 carousel.addEventListener("touchend", handleTouchEnd);
 

@@ -9,12 +9,14 @@
 
 html,
 body {
+  height: 100vh;
   scroll-behavior: smooth;
   color: $light-mode-font-color;
   background-color: $light-mode-background;
   font-family: "Overpass Mono";
   overflow: hidden;
   transition: 0.5s;
+  background-attachment: fixed;
 }
 
 a {
@@ -106,7 +108,7 @@ a {
   margin: 0px auto;
   align-items: center;
   justify-content: flex-start;
-  // overflow: hidden;
+  // overflow: scroll;
   scroll-behavior: smooth;
   // background-color: $light-mode-background;
 
