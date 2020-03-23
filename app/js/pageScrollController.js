@@ -49,14 +49,6 @@ function setScrollLockTimeout() {
   }, 500);
 }
 
-// function getRelativeY(query) {
-//   return document.querySelector(query).offsetTop;
-// }
-
-// function getElementY(query) {
-//   return document.querySelector(query).getBoundingClientRect().top;
-// }
-
 function reset() {
   currentSectionIdx = 0;
   document.getElementById("intro").scrollIntoView(true);

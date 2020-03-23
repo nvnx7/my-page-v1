@@ -22,40 +22,19 @@ const connections = document.getElementById("connections");
 let xStart = null;
 let yStart = null;
 
-const handleTouchStart = e => {
-  // console.log("handleTouchStart");
-
-  xStart = e.touches[0].clientX;
-  yStart = e.touches[0].clientY;
-  console.log(`sX:${xStart} sY:${yStart}`);
+const handleWheel = e => {
+  if (e.deltaY < 0) {
+    // scrolled up
+    scrollToPrev();
+  } else if (e.deltaY > 0) {
+    // scrolled down
+    scrollToNext();
+  }
 };
 
-const handleTouchMove = e => {
-  // console.log("handleTouchMove");
-  if (!xStart || !yStart) return;
-
-  const xMove = e.touches[0].clientX;
-  const yMove = e.touches[0].clientY;
-
-  console.log(`mX:${xMove} mY:${yMove}`);
-
-  const xDiff = xStart - xMove;
-  const yDiff = yStart - yMove;
-
-  // vertical swipe
-  if (Math.abs(yDiff) > SWIPE_THRESHOLD && Math.abs(yDiff) > Math.abs(xDiff)) {
-    if (yDiff > 0) {
-      console.log("move on");
-      // Swipe up
-      scrollToNext();
-    } else {
-      // Swipe down
-      scrollToPrev();
-    }
-
-    xStart = null;
-    yStart = null;
-  }
+const handleTouchStart = e => {
+  xStart = e.touches[0].clientX;
+  yStart = e.touches[0].clientY;
 };
 
 const handleTouchEnd = e => {
@@ -97,15 +76,7 @@ const handleTouchEnd = e => {
   }
 };
 
-window.addEventListener("wheel", e => {
-  if (e.deltaY < 0) {
-    // scrolled up
-    scrollToPrev();
-  } else if (e.deltaY > 0) {
-    // scrolled down
-    scrollToNext();
-  }
-});
+window.addEventListener("wheel", handleWheel);
 
 wrapper.addEventListener("touchstart", handleTouchStart);
 wrapper.addEventListener("touchend", handleTouchEnd);
@@ -116,23 +87,15 @@ peekGradient.addEventListener("click", e => {
   scrollToNextItem();
 });
 
-nextBtn.addEventListener("click", e => {
-  scrollToNextItem();
-});
+nextBtn.addEventListener("click", scrollToNextItem);
 
-prevBtn.addEventListener("click", e => {
-  scrollToPrevItem();
-});
+prevBtn.addEventListener("click", scrollToPrevItem);
 
 navDots.addEventListener("click", e => {
   scrollToItem(e.target);
 });
 
-navMenuBtn.addEventListener("click", e => {
-  if (e.target) {
-    toggleNavMenu();
-  }
-});
+navMenuBtn.addEventListener("click", toggleNavMenu);
 
 navBtnList.addEventListener("click", e => {
   if (e.target.tagName == "A") {
