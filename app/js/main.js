@@ -76,6 +76,8 @@ const handleTouchEnd = e => {
   }
 };
 
+autoSetMode();
+
 window.addEventListener("wheel", handleWheel);
 
 wrapper.addEventListener("touchstart", handleTouchStart);
@@ -107,3 +109,15 @@ navBtnList.addEventListener("click", e => {
     scrollToSection(idx);
   }
 });
+
+// set night mode automatically if it's b/w 7pm and 6am
+function autoSetMode() {
+  const hours = new Date().getHours();
+
+  if (hours >= 19 || hours <= 5) {
+    // Night mode
+    sliderIcon.classList.remove("fa-sun");
+    sliderIcon.classList.add("fa-moon");
+    document.body.classList.add("dark");
+  }
+}
