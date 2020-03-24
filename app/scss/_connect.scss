@@ -4,9 +4,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  // padding-bottom: 50px;
 
-  #header-connect {
+  .type-connect {
     @include typing-anim(2s, 12);
   }
 

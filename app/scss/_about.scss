@@ -9,8 +9,8 @@
     margin-top: 2vw;
   }
 
-  #header-about {
-    @include typing-anim(2.5s, 10);
+  .type-about {
+    @include typing-anim(2.5s, 12);
   }
 
   #caret-about {

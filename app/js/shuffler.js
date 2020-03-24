@@ -20,6 +20,7 @@ let handleRandomizeText = e => {
 navBtnList.addEventListener("mouseenter", handleRandomizeText, true);
 connections.addEventListener("mouseenter", handleRandomizeText, true);
 
+// replaces the element's inner text with output from getRandomText() every 80ms for 400ms.
 function randomizeText() {
   original = element.innerText.split("");
   interval = setInterval(() => {
@@ -36,6 +37,7 @@ function randomizeText() {
   }, 400);
 }
 
+// get random text where each char in string arr has equal chance of being replace or not
 function getRandomText(charArray) {
   var i;
   for (i in charArray) {
