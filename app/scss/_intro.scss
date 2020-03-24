@@ -3,6 +3,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  // padding-bottom: 40px;
 
   #intro-texts {
     display: flex;
@@ -46,16 +47,18 @@
   #intro {
     #intro-texts {
       align-items: center;
-      margin: auto;
+      justify-content: center;
+      margin: 0px auto 100px auto;
+      // text-align: center;
 
       #name,
       #greet {
-        font-size: 3em;
+        font-size: 2.8em;
       }
     }
-  }
 
-  #my-pic {
-    display: none;
+    #my-pic {
+      display: none;
+    }
   }
 }
