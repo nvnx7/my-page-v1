@@ -34,6 +34,7 @@ function scrollToPrev() {
   currentSectionIdx--;
   document.querySelector(sections[currentSectionIdx]).scrollIntoView(true);
   setScrollLockTimeout();
+  animateHeader(currentSectionIdx);
 }
 
 function scrollToSection(sectionIdx) {
@@ -41,6 +42,8 @@ function scrollToSection(sectionIdx) {
   if (lockScroll) return;
   currentSectionIdx = sectionIdx;
   document.querySelector(sections[currentSectionIdx]).scrollIntoView(true);
+  setScrollLockTimeout();
+  animateHeader(currentSectionIdx);
 }
 
 // locks the scroll functionality for 500ms
